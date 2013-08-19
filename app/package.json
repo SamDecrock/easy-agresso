@@ -1,0 +1,17 @@
+{
+  "name": "easy-agresso",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "httpntlm": "~1.0.1",
+    "async": "~0.2.9",
+    "httpreq": "~0.3.4",
+    "cheerio": "~0.12.1",
+    "express": "3.0.0rc4",
+    "stylus": "*",
+    "jade": "~0.28.1",
+    "express-http-auth": "~0.1.0"
+  }
+}
