@@ -39,6 +39,9 @@ function getVerlof(username, password, callback){
 
 
 function parseVerlof(html){
+	console.log(html);
+
+
 	var summary = {};
 	var summaryRows = table2json(html, '#b_s4_g4s10');
 	for(var r = 2; r < 6; r++){
@@ -69,8 +72,8 @@ function parseVerlof(html){
 		details.push({
 			code: row[4],
 			codename: row[5],
-			start: {day: row[6], time: row[7]},
-			end: {day: row[8], time: row[9]},
+			start: {day: row[6], time: row[7], epoch: parseDate(row[6], row[7])},
+			end: {day: row[8], time: row[9], epoch: parseDate(row[6], row[7])},
 			amount: parseFloat(row[10])
 		});
 	}
@@ -80,6 +83,17 @@ function parseVerlof(html){
 		details: details,
 		total: total
 	};
+}
+
+function parseDate(day, time){
+	var daymatch = day.match(/(\d{1,2})\/\d{1,2})\/\d{1,2})/);
+	if(!daymatch || daymatch.length < 4) return null;
+
+	var day = parseInt(daymatch[1]);
+	var month = parseInt(daymatch[2]);
+	var year = parseInt(daymatch[3]);
+
+
 }
 
 

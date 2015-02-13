@@ -61,3 +61,24 @@ function sendError(err, webresponse){
 
 	webresponse.json(o);
 }
+
+
+var day = "4/1/2014";
+var time = "12:00PM";
+
+parseDate(day, time);
+
+function parseDate(day, time){
+	var dateobject = {};
+	var daymatch = day.match(/(\d{1,2})\/(\d{1,2})\/(\d+)/);
+	if(!daymatch || daymatch.length < 4) return null;
+
+
+	dateobject.day = parseInt(daymatch[1]);
+	dateobject.month = parseInt(daymatch[2])-1;
+	dateobject.year = parseInt(daymatch[3]);
+
+
+	console.log(dateobject);
+
+}
